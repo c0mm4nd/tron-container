@@ -1,15 +1,20 @@
 # Configuration File Updates
 
-Some changes to the configuration file:
+Key modifications to `main_net_config.conf` and their purposes:
 
+## Balance History Lookup
 ```
 balance.history.lookup = true
 ```
+**Purpose**: Enable balance history queries for better account tracking and historical analysis.
 
+## Constant Support
 ```
 supportConstant = true
 ```
+**Purpose**: Allow constant function calls without consuming energy, improving query performance for read-only operations.
 
+## Dynamic Configuration
 ```
   # Dynamic loading configuration function, disabled by default
   dynamicConfig = {
@@ -18,14 +23,18 @@ supportConstant = true
     checkInterval = 600
   }
 ```
+**Purpose**: Enable hot configuration updates without node restart, reducing maintenance downtime.
 
+## Internal Transaction Recording
 To save more internal transactions:
 ```
 saveInternalTx = true
 saveFeaturedInternalTx = true
 saveCancelAllUnfreezeV2Details = true
 ```
+**Purpose**: Record complete transaction traces including internal calls, freeze/vote operations, and resource cancellation details for comprehensive blockchain analysis.
 
+## JSON-RPC Ethereum Compatibility
 ```
     httpFullNodeEnable = true
     httpFullNodePort = 8545
@@ -34,7 +43,9 @@ saveCancelAllUnfreezeV2Details = true
     httpPBFTEnable = true
     httpPBFTPort = 8565
 ```
+**Purpose**: Provide Ethereum-compatible JSON-RPC interface on standard port 8545, enabling integration with existing Ethereum tooling (MetaMask, Web3.js, etc.).
 
+## Block Event Streaming
 ```
   topics = [
     {
@@ -44,3 +55,4 @@ saveCancelAllUnfreezeV2Details = true
       solidified = false // if set true, just need solidified block, default is false
     },
 ```
+**Purpose**: Enable real-time block notifications via ZeroMQ for external monitoring and indexing services.
