@@ -1,6 +1,6 @@
-# TronDeploy
+# Tron Container Deployment
 
-TronDeploy is a container for deploying tron protocal fullnode with services.
+Tron Container Deployment is a container for deploying tron protocal fullnode with services.
 
 [中文版](./README.CHS.md)
 
@@ -16,11 +16,12 @@ docker run -d -p8090:8090 -p50545:50545 -p18888:18888 -p18888:18888/udp --name t
 Ports:
 | port | service | required? |
 | --- | --- | --- |
-| 8090 | HTTP Restful API | yes for etl | 
+| 5555 | ZeroMQ | yes for web3research-etl sync |
+| 8090 | HTTP Restful API | yes for tronetl | 
 | 8091 | HTTP Restful API (solidity) | no | 
-| 18888 | P2P | yes for better sync |
-| 50051 | gRPC | no |
-| 50545 | HTTP JSON RPC | yes for etl |
+| 18888 | P2P | yes for better node sync |
+| 50051 | gRPC | yes for web3research-etl |
+| 50545 | HTTP JSON RPC | yes for tronetl |
 | 50555 | HTTP JSON RPC (solidity) | no |
 
 Files & Folders:
